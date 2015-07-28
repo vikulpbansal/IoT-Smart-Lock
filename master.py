@@ -1,0 +1,20 @@
+from time import sleep
+from subprocess import *
+ah=open('filename.txt','w')
+ah.flush()
+ah.close()
+ah=open('nameid.txt','w')
+ah.flush()
+ah.close()
+ah=open('webcommand.txt','w')
+ah.flush()
+ah.close()
+sleep(1)
+subprocess.call(['sudo','ifup','wlan0'])
+sleep(180)
+a=Popen(['sudo','wpa_cli','status'])
+(output,err)=a.communicate()
+print output
+p=Popen(['sudo','python','testn.py'])
+sleep(0.1)
+p=Popen(['sudo','python','arduinopin.py'])
